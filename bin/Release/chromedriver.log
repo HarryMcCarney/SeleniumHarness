@@ -1,0 +1,39 @@
+[0.000][INFO]:      ChromeDriver 26.0.1383.0 C:\SeleniumHarness\code\SeleniumHarness\packages\WebDriver.ChromeDriver.26.0.1383.1\tools\chromedriver.exe
+[1.041][FINE]:      Initializing session with capabilities {
+   "browserName": "chrome",
+   "chrome.switches": [  ],
+   "chromeOptions": {
+      "args": [  ],
+      "extensions": [  ]
+   },
+   "javascriptEnabled": true,
+   "platform": "WINDOWS",
+   "version": ""
+}
+
+[1.041][INFO]:      Launching chrome: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-hang-monitor --disable-prompt-on-repost --dom-automation --full-memory-crash-report --no-default-browser-check --no-first-run --disable-background-networking --disable-sync --disable-translate --disable-web-resources --safebrowsing-disable-auto-update --safebrowsing-disable-download-protection --disable-client-side-phishing-detection --disable-component-update --disable-default-apps --enable-logging --log-level=1 --ignore-certificate-errors about:blank
+[1.269][INFO]:      Connected to Chrome successfully. Version: 26.0.1410.43
+[1.273][FINE]:      Command received (/session/bcb8b91415ee25471da6ffeb13445180)
+[1.274][FINE]:      Command finished (/session/bcb8b91415ee25471da6ffeb13445180) with response {
+   "sessionId": "bcb8b91415ee25471da6ffeb13445180",
+   "status": 0,
+   "value": {
+      "acceptSslCerts": false,
+      "applicationCacheEnabled": false,
+      "browserConnectionEnabled": false,
+      "browserName": "chrome",
+      "chrome.chromedriverVersion": "26.0.1383.0",
+      "cssSelectorsEnabled": true,
+      "databaseEnabled": false,
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "locationContextEnabled": false,
+      "nativeEvents": true,
+      "platform": "windows",
+      "rotatable": false,
+      "takesScreenshot": true,
+      "version": "26.0.1410.43",
+      "webStorageEnabled": true
+   }
+}
+
