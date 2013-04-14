@@ -17,10 +17,14 @@ namespace SeleniumHarness
     {
 
 
+
+
         private static List<Type> tests { get; set; }
 
         private static string logFile = Globals.Instance.fileName;
         private static Logger log = Globals.Instance.log;
+        private static string email = Globals.Instance.email;
+
 
         private static List<Type> getTests()
         {
@@ -41,7 +45,7 @@ namespace SeleniumHarness
             var browsers = new[] {"Chrome", "Safari", "IE", "Firefox"};
             foreach (var t in tests)
                 new TestRunner(t, browsers).runtTest();
-
+            if (email != null)
             EmailLog.send();
         }
 
@@ -51,6 +55,7 @@ namespace SeleniumHarness
             if (tests == null) return;
             foreach (var t in tests)
                 new TestRunner(t, browsers).runtTest();
+            if (email != null)
             EmailLog.send();
         }
 
@@ -64,6 +69,7 @@ namespace SeleniumHarness
             foreach (var t in tests)
                 if (t.Name == test)
                     new TestRunner(t, browsers).runtTest();
+            if (email != null)
             EmailLog.send();
         }
 
@@ -75,6 +81,7 @@ namespace SeleniumHarness
             foreach (var t in tests)
                 if (t.Name == test)
                     new TestRunner(t, browsers).runtTest();
+            if (email != null)
             EmailLog.send();
         }
     }

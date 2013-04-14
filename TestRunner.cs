@@ -21,6 +21,7 @@ namespace SeleniumHarness
         private Type test { get; set; }
         private static  Logger log = Globals.Instance.log;
         private string[] browsers { get; set; }
+        
 
         public TestRunner(Type test, string[] _browsers)
         {

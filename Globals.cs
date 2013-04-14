@@ -13,8 +13,10 @@ namespace SeleniumHarness
     public class Globals
     {
         private static Globals instance = new Globals();
-        public   Logger log;
-        public  string fileName;
+        internal Logger log;
+        internal  string fileName;
+        public string email { get; set; }
+    
 
         public static Globals Instance
         {

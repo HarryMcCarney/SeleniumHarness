@@ -12,8 +12,9 @@ namespace SeleniumHarness
         public static void send()
         {
             string fileText = File.ReadAllText(Globals.Instance.fileName);
+            string email = Globals.Instance.email;
 
-            Mail.send(fileText);
+            Mail.send(fileText, email);
         }
 
     }
