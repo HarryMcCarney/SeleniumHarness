@@ -1,0 +1,312 @@
+using System;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading;
+using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
+
+namespace SeleniumTests
+{
+    [TestFixture]
+    public class JiraLL140
+    {
+        private IWebDriver driver;
+        private StringBuilder verificationErrors;
+        private string baseURL;
+        private bool acceptNextAlert = true;
+        
+        [SetUp]
+        public void SetupTest()
+        {
+            driver = new FirefoxDriver();
+            baseURL = "https://startpage.com/";
+            verificationErrors = new StringBuilder();
+        }
+        
+        [TearDown]
+        public void TeardownTest()
+        {
+            try
+            {
+                driver.Quit();
+            }
+            catch (Exception)
+            {
+                // Ignore errors if unable to close the browser
+            }
+            Assert.AreEqual("", verificationErrors.ToString());
+        }
+        
+        [Test]
+        public void TheJiraLL140Test()
+        {
+            // store | http://demo.larryslist.de/admin/ | demo
+            String demo = "http://demo.larryslist.de/admin/";
+            // store | http://dev.larryslist.de/admin/ | dev
+            String dev = "http://dev.larryslist.de/admin/";
+            // open | ${dev} | 
+            driver.Navigate().GoToUrl(baseURL + dev);
+            // waitForElementPresent | link=Login | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.LinkText("Login"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // waitForElementPresent | name=formdata.pwd | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.Name("formdata.pwd"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // type | name=formdata.email | mapa@friendfund.com
+            driver.FindElement(By.Name("formdata.email")).Clear();
+            driver.FindElement(By.Name("formdata.email")).SendKeys("mapa@friendfund.com");
+            // type | name=formdata.pwd | mapa123
+            driver.FindElement(By.Name("formdata.pwd")).Clear();
+            driver.FindElement(By.Name("formdata.pwd")).SendKeys("mapa123");
+            // waitForElementPresent | css=button.btn.btn-primary | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.CssSelector("button.btn.btn-primary"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // click | css=button.btn.btn-primary | 
+            driver.FindElement(By.CssSelector("button.btn.btn-primary")).Click();
+            // waitForElementPresent | //div[2]/div/div/a | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.XPath("//div[2]/div/div/a"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // take 1st of Approved Collectors
+            // waitForElementPresent | //div[2]/div/div/a | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.XPath("//div[2]/div/div/a"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // highlight | //div[2]/div/div/a | 
+            // ERROR: Caught exception [ERROR: Unsupported command [highlight | //div[2]/div/div/a | ]]
+            // click | //div[2]/div/div/a | 
+            driver.FindElement(By.XPath("//div[2]/div/div/a")).Click();
+            // Section Collection
+            // waitForElementPresent | link=Collection | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.LinkText("Collection"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // highlight | link=Collection | 
+            // ERROR: Caught exception [ERROR: Unsupported command [highlight | link=Collection | ]]
+            // click | link=Collection | 
+            driver.FindElement(By.LinkText("Collection")).Click();
+            // Tab Artists
+            // waitForElementPresent | link=Artists | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.LinkText("Artists"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // highlight | link=Artists | 
+            // ERROR: Caught exception [ERROR: Unsupported command [highlight | link=Artists | ]]
+            // click | link=Artists | 
+            driver.FindElement(By.LinkText("Artists")).Click();
+            // Try
+            // setSpeed | 300 | 
+            // ERROR: Caught exception [ERROR: Unsupported command [setSpeed | 300 | ]]
+            // waitForElementPresent | link=Add Artworks | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.LinkText("Add Artworks"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // highlight | link=Add Artworks | 
+            // ERROR: Caught exception [ERROR: Unsupported command [highlight | link=Add Artworks | ]]
+            // click | css=a.js-link.open-form | 
+            driver.FindElement(By.CssSelector("a.js-link.open-form")).Click();
+            // wait For lightbox-layer
+            // waitForElementPresent | //div[4]/label | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.XPath("//div[4]/label"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // click | css=div.modal-header > button.close | 
+            driver.FindElement(By.CssSelector("div.modal-header > button.close")).Click();
+            // waitForElementPresent | link=Add Artworks | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.LinkText("Add Artworks"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // click | css=a.js-link.open-form | 
+            driver.FindElement(By.CssSelector("a.js-link.open-form")).Click();
+            // waitForElementPresent | //div[4]/label | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.XPath("//div[4]/label"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // Add an Artist
+            // waitForElementPresent | name=Artist-0.Artwork-0.title | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.Name("Artist-0.Artwork-0.title"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // type | xpath=(//input[@name='Artist-0.Artwork-0.title'])[2] | Any Title of an Artwork
+            driver.FindElement(By.XPath("(//input[@name='Artist-0.Artwork-0.title'])[2]")).Clear();
+            driver.FindElement(By.XPath("(//input[@name='Artist-0.Artwork-0.title'])[2]")).SendKeys("Any Title of an Artwork");
+            // type | xpath=(//input[@name='Artist-0.Artwork-0.year'])[2] | 0
+            driver.FindElement(By.XPath("(//input[@name='Artist-0.Artwork-0.year'])[2]")).Clear();
+            driver.FindElement(By.XPath("(//input[@name='Artist-0.Artwork-0.year'])[2]")).SendKeys("0");
+            // select | xpath=(//select[@name='Artist-0.Artwork-0.medium'])[2] | label=film
+            new SelectElement(driver.FindElement(By.XPath("(//select[@name='Artist-0.Artwork-0.medium'])[2]"))).SelectByText("film");
+            // select | xpath=(//select[@name='Artist-0.Artwork-0.medium'])[2] | label=,-ä
+            new SelectElement(driver.FindElement(By.XPath("(//select[@name='Artist-0.Artwork-0.medium'])[2]"))).SelectByText(",-ä");
+            // type | xpath=(//input[@name='Artist-0.Artwork-0.height'])[2] | 1
+            driver.FindElement(By.XPath("(//input[@name='Artist-0.Artwork-0.height'])[2]")).Clear();
+            driver.FindElement(By.XPath("(//input[@name='Artist-0.Artwork-0.height'])[2]")).SendKeys("1");
+            // type | xpath=(//input[@name='Artist-0.Artwork-0.width'])[2] | 11
+            driver.FindElement(By.XPath("(//input[@name='Artist-0.Artwork-0.width'])[2]")).Clear();
+            driver.FindElement(By.XPath("(//input[@name='Artist-0.Artwork-0.width'])[2]")).SendKeys("11");
+            // type | xpath=(//input[@name='Artist-0.Artwork-0.depth'])[2] | 0
+            driver.FindElement(By.XPath("(//input[@name='Artist-0.Artwork-0.depth'])[2]")).Clear();
+            driver.FindElement(By.XPath("(//input[@name='Artist-0.Artwork-0.depth'])[2]")).SendKeys("0");
+            // select | xpath=(//select[@name='Artist-0.Artwork-0.measurement'])[2] | label=inch
+            new SelectElement(driver.FindElement(By.XPath("(//select[@name='Artist-0.Artwork-0.measurement'])[2]"))).SelectByText("inch");
+            // select | xpath=(//select[@name='Artist-0.Artwork-0.material'])[2] | label=Woodcut
+            new SelectElement(driver.FindElement(By.XPath("(//select[@name='Artist-0.Artwork-0.material'])[2]"))).SelectByText("Woodcut");
+            // click | css=div.modal-footer > button.btn.btn-primary | 
+            driver.FindElement(By.CssSelector("div.modal-footer > button.btn.btn-primary")).Click();
+            // click | xpath=(//button[@type='submit'])[4] | 
+            driver.FindElement(By.XPath("(//button[@type='submit'])[4]")).Click();
+            // click | xpath=(//button[@name='Artist-0.Artwork-0.reassign'])[2] | 
+            driver.FindElement(By.XPath("(//button[@name='Artist-0.Artwork-0.reassign'])[2]")).Click();
+            // click | css=button.btn.btn-primary | 
+            driver.FindElement(By.CssSelector("button.btn.btn-primary")).Click();
+            // highlight | link=Communication Platforms | 
+            // ERROR: Caught exception [ERROR: Unsupported command [highlight | link=Communication Platforms | ]]
+            // click | link=Communication Platforms | 
+            driver.FindElement(By.LinkText("Communication Platforms")).Click();
+            // waitForElementPresent | link=Communication Platforms | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.LinkText("Communication Platforms"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            // highlight | link=Artists | 
+            // ERROR: Caught exception [ERROR: Unsupported command [highlight | link=Artists | ]]
+            // click | link=Artists | 
+            driver.FindElement(By.LinkText("Artists")).Click();
+            // waitForElementPresent | link=Artists | 
+            for (int second = 0;; second++) {
+                if (second >= 60) Assert.Fail("timeout");
+                try
+                {
+                    if (IsElementPresent(By.LinkText("Artists"))) break;
+                }
+                catch (Exception)
+                {}
+                Thread.Sleep(1000);
+            }
+            //  |  | 
+            // ERROR: Caught exception [unknown command []]
+            // click | link=Logout | 
+            driver.FindElement(By.LinkText("Logout")).Click();
+        }
+        private bool IsElementPresent(By by)
+        {
+            try
+            {
+                driver.FindElement(by);
+                return true;
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+        }
+        
+        private string CloseAlertAndGetItsText() {
+            try {
+                IAlert alert = driver.SwitchTo().Alert();
+                if (acceptNextAlert) {
+                    alert.Accept();
+                } else {
+                    alert.Dismiss();
+                }
+                return alert.Text;
+            } finally {
+                acceptNextAlert = true;
+            }
+        }
+    }
+}
