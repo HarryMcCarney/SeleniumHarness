@@ -23,6 +23,7 @@ namespace SeleniumHarness
         private string[] browsers { get; set; }
         
 
+
         public TestRunner(Type test, string[] _browsers)
         {
             this.test = test;
