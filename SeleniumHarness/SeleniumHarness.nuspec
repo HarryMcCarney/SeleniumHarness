@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>HackandCraft.Selenium</id>
+    <id>hackandCraft.Selenium</id>
     <version>$version$</version>
     <authors>Harry McCarney</authors>
     <owners>Harry McCarney</owners>
@@ -9,6 +9,6 @@
     <description>Looks for exported c# webdriver tests in SeleniumTests namespace and runs in selected browsers</description>
     <releaseNotes>First Version</releaseNotes>
     <copyright>Copyright 2013</copyright>
-    <tags>Selenium QA Automation</tags>
+    <tags>Selenium QA testing Automation</tags>
   </metadata>
 </package>
