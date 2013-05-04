@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>hackandCraft.Selenium</id>
+    <id>HackandCraft.Selenium</id>
     <version>$version$</version>
     <authors>Harry McCarney</authors>
     <owners>Harry McCarney</owners>
 	<requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Looks for exported c# webdriver tests in SeleniumTests namespace and runs in selected browsers</description>
+    <description>Looks for exported c# webdriver tests in SeleniumTests namespace and runs in entered browsers</description>
     <releaseNotes>First Version</releaseNotes>
     <copyright>Copyright 2013</copyright>
-    <tags>Selenium QA testing Automation</tags>
+    <tags>Selenium QA Automation</tags>
   </metadata>
 </package>
