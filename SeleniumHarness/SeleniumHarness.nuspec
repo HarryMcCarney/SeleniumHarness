@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>hackandCraft.Selenium</id>
+    <id>HackandCraft.Selenium</id>
     <version>$version$</version>
     <authors>Harry McCarney</authors>
     <owners>Harry McCarney</owners>
